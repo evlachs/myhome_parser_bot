@@ -5,5 +5,5 @@ from aiogram import types
 update_link_button = types.KeyboardButton('Обновить ссылку для поиска')
 
 
-update_link_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+update_link_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 update_link_keyboard.add(update_link_button)

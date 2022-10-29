@@ -25,16 +25,16 @@ class MyHomeParser:
         df = pd.read_csv('data/homes.csv')
         old_urls = df['url']
         for card in self.cards:
-            card_href = card.find('a').get('href')
-            if card_href not in old_urls:
-                self.homes_url.append(card_href[:37])
+            card_href = card.find('a').get('href')[:37]
+            if card_href not in list(old_urls):
+                self.homes_url.append(card_href)
 
     def get_homes_id(self):
         df = pd.read_csv('data/homes.csv')
         old_ids = df['id']
         for card in self.cards:
-            home_id = card.get('data-product-id')
-            if home_id not in old_ids:
+            home_id = int(card.get('data-product-id'))
+            if home_id not in list(old_ids):
                 self.homes_id.append(home_id)
 
     def save_to_csv(self):
