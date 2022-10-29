@@ -15,6 +15,8 @@ async def check_new_houses(sleep_time: int):
             print(f'status code: {p.status}')
         else:
             print(f'Oh shit... We have a problem, status code: {p.status}')
+            continue
+        p.get_cards()
         p.get_homes_id()
         p.get_homes_url()
         if p.homes_url and p.homes_id:
