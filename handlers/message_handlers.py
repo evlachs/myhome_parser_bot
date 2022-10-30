@@ -49,7 +49,7 @@ async def set_link_handler(message: types.Message):
 async def update_link(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['url'] = message.text
-    with open('data/url.txt', 'w+') as file:
+    with open('data/url.txt', 'w+', encoding='utf-8') as file:
         file.write(data['url'])
     await state.finish()
     await bot.send_message(message.chat.id, MESSAGES['link_updated'], reply_markup=update_link_keyboard)

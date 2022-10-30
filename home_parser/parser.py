@@ -44,3 +44,4 @@ class MyHomeParser:
 
     def __del__(self):
         self.request.close()
+        del self
